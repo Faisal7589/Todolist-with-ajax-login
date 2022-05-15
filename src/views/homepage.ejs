@@ -26,10 +26,11 @@
                     <div class="containers">
                         <h1 id="title">Todos</h1>
 
-                        <div id="myDIV" class="header">
+                        <div id="myDIV" class="header" style="
+                        background: rebeccapurple;">
                             <h2>My To Do List</h2>
                             <input type="text" id="myInput" placeholder="Title...">
-                            <button onclick=newElement() id="addBtn">Add</button>
+                            <span onclick="newElement()" class="addBtn">Add</span>
                           </div>
                           <ul id="myUL">
 
@@ -42,6 +43,23 @@
                     </div>
 
                     <script href="Todolist.js">
+
+                      var myNodelist = document.getElementsByTagName("LI");
+                              var i;
+                              for (i = 0; i < myNodelist.length; i++) {
+                                var span = document.createElement("SPAN");
+                                var txt = document.createTextNode("\u00D7");
+                                span.className = "close";
+                                span.appendChild(txt);
+                                myNodelist[i].appendChild(span);
+                              }
+                              var i;
+                              for (i = 0; i < close.length; i++) {
+                                close[i].onclick = function() {
+                                  var div = this.parentElement;
+                                  div.style.display = "none";
+                                }
+                              }
 
  var close = document.getElementsByClassName("close");
                               var i;
@@ -81,6 +99,8 @@ function newElement() {
                                     div.style.display = "none";
                                   }
                                 }
+
+                    
         }
         
                             
